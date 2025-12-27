@@ -22,12 +22,12 @@ export async function POST(req: Request) {
       new PublicKey(POOL)
     )
 
-    // ✅ API VALID
+    // ✅ FIX TYPE + API BENAR
     const activeBin = Number(await pool.getActiveBin())
     const lowerBin = activeBin - 30
     const upperBin = activeBin + 30
 
-    // ✅ API VALID
+    // ✅ METHOD YANG VALID
     const tx = await pool.addLiquidity({
       owner: new PublicKey(owner),
       lowerBin,
