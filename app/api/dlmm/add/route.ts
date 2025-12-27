@@ -22,14 +22,13 @@ export async function POST(req: Request) {
       new PublicKey(POOL)
     )
 
-    // ✅ FIX TYPE
-const activeBin = Number(await pool.getActiveBin())
+    // ✅ API VALID
+    const activeBin = Number(await pool.getActiveBin())
+    const lowerBin = activeBin - 30
+    const upperBin = activeBin + 30
 
-const lowerBin = activeBin - 30
-const upperBin = activeBin + 30
-
-
-    const tx = await pool.addLiquidityByBins({
+    // ✅ API VALID
+    const tx = await pool.addLiquidity({
       owner: new PublicKey(owner),
       lowerBin,
       upperBin,
