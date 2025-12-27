@@ -22,11 +22,12 @@ export async function POST(req: Request) {
       new PublicKey(POOL)
     )
 
-    // ✅ FIXED: use method, not property
-    const activeBin = await pool.getActiveBin()
+    // ✅ FIX TYPE
+const activeBin = Number(await pool.getActiveBin())
 
-    const lowerBin = activeBin - 30
-    const upperBin = activeBin + 30
+const lowerBin = activeBin - 30
+const upperBin = activeBin + 30
+
 
     const tx = await pool.addLiquidityByBins({
       owner: new PublicKey(owner),
